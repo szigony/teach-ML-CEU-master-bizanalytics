@@ -15,7 +15,7 @@ library(data.table)
 library(GGally)
 
 library(h2o)
-h2o.init()
+h2o.init(max_mem_size = '6g')
 ```
 
 
@@ -61,7 +61,7 @@ glm_model <- h2o.glm(
   X, y,
   training_frame = data_train,
   family = "binomial",
-  alpha = 1, 
+  alpha = 1, # lasso model
   lambda_search = TRUE,
   seed = 123,
   nfolds = 5, 
